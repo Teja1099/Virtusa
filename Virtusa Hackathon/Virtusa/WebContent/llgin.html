@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Login page</title>
+</head>
+<style>
+  .form-group{
+    margin-left: 35%;
+  }
+  .con{
+    text-align: center;
+  }
+  
+  body{
+  	background-color:lightgrey;
+  	background-size:auto;
+  }
+  
+  .main{
+  	margin-top:150px;
+  }
+</style>
+
+<body>
+<div class = "main">
+  <h1 style="text-align: center;">Login With Your Details</h1>
+  <br>
+  <div class="container">
+    <form action="log" method="post" onsubmit="validate()">
+        <div class="form-group">
+          <div class="col-md-6 boxy">
+           <label for="username">User Name</label>
+        <input type="text" class="form-control" name="uname" id="username" aria-describedby="emailHelp" placeholder="Enter your Username">
+        </div>
+        <div class="col-md-6 boxy">
+          <label for="pass">Password</label>
+          <input type="password" class="form-control" name="pwd" id="pass" placeholder="Enter Password">
+          </div>
+        </div>
+          <div class="con">
+        <input type="submit" class="btn btn-primary" value="Login"> &nbsp;
+        <!--  <button class="btn btn-primary" onclick="redirect()" />Sign up</button> -->
+        <a href="reg.html">sign up</a>
+          </div>
+      </form>
+      </div>
+     </div>
+      <script>
+      function validate(){
+    	    var pass=document.getElementById("pass").value;
+    	    if(pass.length<8){
+    	        window.alert("password should be longer");
+    	        return false;
+    	    }
+    	}
+      /*
+      function redirect(){
+    	  window.location.href="https://www.google.com/search?sxsrf=ALeKk03n4iq4mfPaSvKLvxD8Narhx3AAAg%3A1582895078675&ei=5g9ZXub3KMyH4-EP3KCCoAY&q=how+to+get+an+attribute+in+table+from+jdbc+query&oq=how+to+get+an+attribute+in+table+from+jdbc+query&gs_l=psy-ab.3...7326.42806..46060...0.2..0.138.2824.3j22......0....1..gws-wiz.......0i71j35i304i39j33i10.6Hw9g_9aiVs&ved=0ahUKEwjmgobXp_TnAhXMwzgGHVyQAGQQ4dUDCAs&uact=5"
+      }
+		*/
+      </script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Cart Page</title>
+    <style>
+    	body{
+    		background-color:lightpink;
+    		background-size:auto;
+    	}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top mb-5 shadow">
+        <div class="container">
+          <a class="navbar-brand" href="#">Food Express</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <!-- <li class="nav-item active">
+                <a class="nav-link" href="#">Home
+                      <span class="sr-only">(current)</span> -->
+                    <!-- </a> -->
+              <!-- </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+              
+              <li class="nav-item">
+              <form action="logout" method="get">
+                <input class="btn btn-primary" type="submit" value="Logout"></form>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <div class="px-4 px-lg-0">
+        <div class="pb-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+      
+                <!-- Shopping cart table -->
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="border-0 bg-light">
+                          <div class="p-2 px-3 text-uppercase">Product</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light">
+                          <div class="py-2 text-uppercase">Price</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light">
+                          <div class="py-2 text-uppercase">Quantity</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light">
+                            <div class="py-2 text-uppercase">Total</div>
+                          </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" class="border-0">
+                          <div class="p-2">
+                            <img src="chic.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"> Fish  <a href="#" class="text-dark d-inline-block align-middle"></a></h5>
+                            </div>
+                          </div>
+                        </th>
+                        <td class="border-0 align-middle"><strong class="food">79 </strong></td>
+                        <td class="border-0 align-middle"><input type="number" id="f1" onchange="fish()"  value=0 min="0" max="10" class="form-control"></td>
+                        <td class="border-0 align-middle"><output id="t1"></output> </td>
+ 
+                        <!-- <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td> -->
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="p-2">
+                            <img src="fishb.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">Fish Biryani</a></h5>
+                             
+                            </div>
+                          </div>
+                        </th>
+                        <td class="align-middle"><strong class="food">100</strong></td>
+ 
+                        <td class="align-middle">
+                            <input type="number" id="b2" onchange="biryani()" value=0 min="0" max="10"  class="form-control"></td>
+                       <td class="align-middle"><output id="t2"></output></td>
+                            <!-- <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a> -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="p-2">
+                            <img src="chillichicken.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Biryani</a></h5>
+                            </div>
+                          </div>
+                          <td class="align-middle"><strong class="food">89</strong></td>
+                          <td class="align-middle"><input type="number" id="b1" onchange="bbiryani()" value=0 min="0" max="10" class="form-control"></td>
+                          <td class="align-middle"><output id="t3"></output></td>
+                          <!-- <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a> -->
+                          </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="p-2">
+                            <img src="chicm.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Chicken Manchuria</a></h5>
+                            </div>
+                          </div>
+                          <td class="align-middle"><strong class="food">80</strong></td>
+                          <td class="align-middle"><input type="number" id="c1" onchange="cm()" value=0 min="0" max="10" class="form-control"></td>
+                          <td class="align-middle"><output id="t4"></output></td>
+                          <!-- <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a> -->
+                          </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="p-2">
+                            <img src="legp.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Chicken Leg piece</a></h5>
+                            </div>
+                          </div>
+                          <td class="align-middle"><strong class="food">90</strong></td>
+                          <td class="align-middle"><input type="number" id="c2" onchange="cl()" value=0 min="0" max="10" class="form-control"></td>
+                          <td class="align-middle"><output id="t5"></output></td>
+                          <!-- <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a> -->
+                          </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="p-2">
+                            <img src="coronach.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Corona Chicken Pieces</a></h5>
+                            </div>
+                          </div>
+                          <td class="align-middle"><strong class="food">95</strong></td>
+                          <td class="align-middle"><input type="number" id="c3" onchange="cc()" value=0 min="0" max="10" class="form-control"></td>
+                          <td class="align-middle"><output id="t6"></output></td>
+                          <!-- <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a> -->
+                          </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="p-2">
+                            <img src="vegb.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Veg Biryani</a></h5>
+                            </div>
+                          </div>
+                          <td class="align-middle"><strong class="food">84</strong></td>
+                          <td class="align-middle"><input type="number" id="v1" onchange="vb()" value=0 min="0" max="10" class="form-control"></td>
+                          <td class="align-middle"><output id="t7"></output></td>
+                          <!-- <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a> -->
+                          </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="p-2">
+                            <img src="vegn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Veg Noodles</a></h5>
+                            </div>
+                          </div>
+                          <td class="align-middle"><strong class="food">90</strong></td>
+                          <td class="align-middle"><input type="number" id="v2" onchange="vn()" value=0 min="0" max="10" class="form-control"></td>
+                          <td class="align-middle"><output id="t8"></output></td>
+                          <!-- <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a> -->
+                          </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="p-2">
+                            <img src="mutt.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Matar Panner</a></h5>
+                            </div>
+                          </div>
+                          <td class="align-middle"><strong class="food">100</strong></td>
+                          <td class="align-middle"><input type="number" id="m1" onchange="mp()" value=0 min="0" max="10" class="form-control"></td>
+                          <td class="align-middle"><output id="t9"></output></td>
+                          <!-- <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a> -->
+                          </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="p-2">
+                            <img src="aloo.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Aloo Curry</a></h5>
+                            </div>
+                          </div>
+                          <td class="align-middle"><strong class="food">110</strong></td>
+                          <td class="align-middle"><input type="number" id="a1" onchange="ac()" value=0 min="0" max="10" class="form-control"></td>
+                          <td class="align-middle"><output id="t10"></output></td>
+                          </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="p-2">
+                            <img src="per.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Curd Rice</a></h5>
+                            </div>
+                          </div>
+                          <td class="align-middle"><strong class="food">120</strong></td>
+                          <td class="align-middle"><input type="number" id="c7" onchange="cr()" value=0 min="0" max="10" class="form-control"></td>
+                          <td class="align-middle"><output id="t11"></output></td>
+                          </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="p-2">
+                            <img src="ben.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Mixed Vegetable</a></h5>
+                            </div>
+                          </div>
+                          <td class="align-middle"><strong class="food">135</strong></td>
+                          <td class="align-middle"><input type="number" id="b21" onchange="bc()" value=0 min="0" max="10" class="form-control"></td>
+                          <td class="align-middle"><output id="t12"></output></td>
+                          </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="p-2">
+                            <img src="mix.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Veg Manchuria</a></h5>
+                            </div>
+                          </div>
+                          <td class="align-middle"><strong class="food">120</strong></td>
+                          <td class="align-middle"><input type="number" id="m121" onchange="mc()" value=0 min="0" max="10" class="form-control"></td>
+                          <td class="align-middle"><output id="t13"></output></td>
+                          </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="p-2">
+                            <img src="pann.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Paneer Butter Masala</a></h5>
+                            </div>
+                          </div>
+                          <td class="align-middle"><strong class="food">125</strong></td>
+                          <td class="align-middle"><input type="number" id="p1" onchange="pb()" value=0 min="0" max="10" class="form-control"></td>
+                          <td class="align-middle"><output id="t14"></output></td>
+                          </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="p-2">
+                            <img src="vegbu.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Veg Burger</a></h5>
+                            </div>
+                          </div>
+                          <td class="align-middle"><strong class="food">130</strong></td>
+                          <td class="align-middle"><input type="number" id="vg1" onchange="vgb()" value=0 min="0" max="10" class="form-control"></td>
+                          <td class="align-middle"><output id="t15"></output></td>
+                          </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="p-2">
+                            <img src="meal.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Plate Meals</a></h5>
+                            </div>
+                          </div>
+                          <td class="align-middle"><strong class="food">160</strong></td>
+                          <td class="align-middle"><input type="number" id="pm1" onchange="pm()" value=0 min="0" max="10" class="form-control"></td>
+                          <td class="align-middle"><output id="t16"></output></td>
+                          </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="p-2">
+                            <img src="chur.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Churmur Rice</a></h5>
+                            </div>
+                          </div>
+                          <td class="align-middle"><strong class="food">125</strong></td>
+                          <td class="align-middle"><input type="number" id="ch1" onchange="ch()" value=0 min="0" max="10" class="form-control"></td>
+                          <td class="align-middle"><output id="t17"></output></td>
+                          </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="p-2">
+                            <img src="min.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Minus Chapathi</a></h5>
+                            </div>
+                          </div>
+                          <td class="align-middle"><strong class="food">90</strong></td>
+                          <td class="align-middle"><input type="number" id="mh1" onchange="mh()" value=0 min="0" max="10" class="form-control"></td>
+                          <td class="align-middle"><output id="t18"></output></td>
+                          </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- End -->
+              </div>
+            </div>
+            <div class="container text-center">
+                <span>Total Cost : </span>
+                <span id = "totsum"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container text-center">
+          <form action = "ccart" method="post" class = "center">
+          			<input type="text" name="totsum" id = "final" style="background:none;border:none;font-size:0px"/>
+                    <input type="submit"  onclick="checkout()"  class = "btn btn-primary">
+            </form>
+    </div>
+      
+      <script src="ord.js">
+ 
+      </script>
+</body>
+</html>
+
